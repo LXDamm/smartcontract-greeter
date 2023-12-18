@@ -1,8 +1,8 @@
 import { ethers } from "hardhat";
 
 async function main() {
-  const message = 'Hello World';
-  const greeter = await ethers.deployContract("Greeter", [message]);
+  const encodedHelloWorlMessage = await ethers.encodeBytes32String('Hello World');
+  const greeter = await ethers.deployContract("Greeter", [encodedHelloWorlMessage]);
 
   await greeter.waitForDeployment();
 }
